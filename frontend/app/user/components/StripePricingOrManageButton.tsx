@@ -12,7 +12,7 @@ export const StripePricingOrManageButton = (): JSX.Element => {
     return (
       <a href={MANAGE_PLAN_URL} target="_blank" rel="noopener">
         <QuivrButton
-          label="Manage my plan"
+          label="Meinen Plan verwalten"
           color="gold"
           iconName="star"
         ></QuivrButton>
@@ -23,13 +23,11 @@ export const StripePricingOrManageButton = (): JSX.Element => {
   return (
     <StripePricingModal
       Trigger={
-        <div>
-          <QuivrButton
-            label="Upgrade my plan"
-            color="gold"
-            iconName="star"
-          ></QuivrButton>
-        </div>
+        <QuivrButton
+          label="Meinen Plan erweitern"
+          color="gold"
+          iconName="star"
+        ></QuivrButton>
       }
     />
   );

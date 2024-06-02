@@ -33,7 +33,7 @@ const BrainsManagement = (): JSX.Element => {
 
   const buttons: ButtonType[] = [
     {
-      label: "Add knowledge",
+      label: "Wissen hinzufügen",
       color: "primary",
       onClick: () => {
         setShouldDisplayFeedCard(true);
@@ -42,7 +42,7 @@ const BrainsManagement = (): JSX.Element => {
       hidden: !isOwnedByCurrentUser || !brain?.max_files,
     },
     {
-      label: isOwnedByCurrentUser ? "Delete Brain" : "Unsubscribe from Brain",
+      label: isOwnedByCurrentUser ? "Gehirn löschen" : "Abmelden von Gehirn",
       color: "dangerous",
       onClick: () => {
         setIsDeleteOrUnsubscribeModalOpened(true);

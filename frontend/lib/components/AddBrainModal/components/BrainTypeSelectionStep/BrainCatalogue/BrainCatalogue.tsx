@@ -22,20 +22,20 @@ export const BrainCatalogue = ({
     <div className={styles.cards_wrapper}>
       <MessageInfoBox type="info">
         <span>
-          A Brain is a specialized AI tool designed to interact with specific
-          use cases or data sources.
+        Brain ist ein spezialisiertes KI-Tool, das für die Interaktion 
+        mit bestimmten Anwendungsfällen oder Datenquellen.
         </span>
       </MessageInfoBox>
       {!userIdentityData?.onboarded && (
         <MessageInfoBox type="tutorial">
           <span>
-            Let&apos;s start by creating a Docs &amp; URLs brain.<br></br>Of
-            course, feel free to explore other types of brains during your Quivr
-            journey.
+            Beginnen wir mit der Erstellung eines Doku- und URL-Gehirns.<br></br>
+            Natürlich können Sie während Ihrer App-Reise auch andere 
+            Arten von Gehirnen erkunden.
           </span>
         </MessageInfoBox>
       )}
-      <span className={styles.title}>Choose a brain type</span>
+      <span className={styles.title}>Wählen Sie eine Gehirnart</span>
       <div className={styles.brains_grid}>
         {brains.map((brain) => {
           return (

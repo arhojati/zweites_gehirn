@@ -1,0 +1,18 @@
+{
+    "password": "Passwort",
+    "googleLogin": "Weiter mit Google",
+    "errorPasswordMissed": "Bitte geben Sie Ihr Passwort ein",
+    "magicLink": "Weiter mit E-Mail",
+    "errorMailMissed": "Bitte geben Sie Ihre E-Mail Adresse ein",
+    "talk_to": "Chat mit",
+    "restriction_message": "Unbezahlte Nutzer haben Zugang zu einer kostenlosen und begrenzten Demo der App",
+    "email": "E-Mail Adresse",
+    "cant_find": "Können Sie es nicht finden?",
+    "try_again": "Erneut versuchen",
+    "check_your_email": {
+    "part1": "Wir haben Ihnen gerade einen ",
+    "magic_link": "Magic-Link",
+    "part2": "geschickt, überprüfen Sie Ihre E-Mails und folgen Sie den Anweisungen."
+    },
+    "login": "Anmelden"
+    }

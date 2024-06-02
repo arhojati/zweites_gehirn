@@ -33,7 +33,7 @@ const UserPage = (): JSX.Element => {
 
   const buttons: ButtonType[] = [
     {
-      label: "Logout",
+      label: "Abmelden",
       color: "dangerous",
       onClick: () => {
         setIsLogoutModalOpened(true);
@@ -41,7 +41,7 @@ const UserPage = (): JSX.Element => {
       iconName: "logout",
     },
     {
-      label: "Delete Account",
+      label: "Konto löschen",
       color: "dangerous",
       onClick: () => {
         setDeleteAccountModalOpened(true);
@@ -57,7 +57,7 @@ const UserPage = (): JSX.Element => {
   return (
     <>
       <div className={styles.page_header}>
-        <PageHeader iconName="user" label="Profile" buttons={buttons} />
+        <PageHeader iconName="user" label="Profil" buttons={buttons} />
       </div>
       <div className={styles.user_page_container}>
         <div className={styles.content_wrapper}>
@@ -111,7 +111,7 @@ const UserPage = (): JSX.Element => {
                 void deleteUserData();
                 void handleLogout();
               }}
-              label="Delete Account"
+              label="Konto löschen"
               iconName="logout"
             ></QuivrButton>
           </div>

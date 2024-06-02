@@ -109,17 +109,17 @@ export const Notifications = (): JSX.Element => {
       {panelOpened && (
         <div className={styles.notifications_panel}>
           <div className={styles.notifications_panel_header}>
-            <span className={styles.title}>Notifications</span>
+            <span className={styles.title}>Mitteilungen</span>
             <div className={styles.buttons}>
               <TextButton
-                label="Mark all as read"
+                label="Alle als gelesen markieren"
                 color="black"
                 onClick={() => void markAllAsRead()}
                 disabled={unreadNotifications === 0}
               />
               <span>|</span>
               <TextButton
-                label="Delete all"
+                label="Alle löschen"
                 color="black"
                 onClick={() => void deleteAllNotifications()}
                 disabled={notifications.length === 0}
@@ -128,7 +128,7 @@ export const Notifications = (): JSX.Element => {
           </div>
           {notifications.length === 0 && (
             <div className={styles.no_notifications}>
-              You have no notifications
+              Sie haben keine Mitteilungen
             </div>
           )}
           {notifications.map((notification, i) => (

@@ -58,8 +58,8 @@ export const OnboardingModal = (): JSX.Element => {
   return (
     <FormProvider {...methods}>
       <Modal
-        title="Welcome to Quivr!"
-        desc="Let us know a bit more about you to get started."
+        title="Willkommen bei Dolphine.AI!"
+        desc="Erzählen Sie uns ein wenig mehr über sich, damit wir beginnen können."
         isOpen={isOnboardingModalOpened}
         setOpen={setIsOnboardingModalOpened}
         CloseTrigger={<div />}
@@ -68,12 +68,12 @@ export const OnboardingModal = (): JSX.Element => {
         <div className={styles.modal_content_wrapper}>
           <div className={styles.form_wrapper}>
             <div>
-              <FieldHeader iconName="user" label="Username" mandatory={true} />
+              <FieldHeader iconName="user" label="Benutzername" mandatory={true} />
               <Controller
                 name="username"
                 render={({ field }) => (
                   <TextInput
-                    label="Choose a username"
+                    label="Wählen Sie einen Benutzernamen"
                     inputValue={field.value as string}
                     setInputValue={field.onChange}
                   />
@@ -81,12 +81,12 @@ export const OnboardingModal = (): JSX.Element => {
               />
             </div>
             <div>
-              <FieldHeader iconName="office" label="Company" />
+              <FieldHeader iconName="office" label="Firma" />
               <Controller
                 name="companyName"
                 render={({ field }) => (
                   <TextInput
-                    label="Your company name"
+                    label="Name Ihrer Firma"
                     inputValue={field.value as string}
                     setInputValue={field.onChange}
                   />
@@ -94,14 +94,14 @@ export const OnboardingModal = (): JSX.Element => {
               />
             </div>
             <div>
-              <FieldHeader iconName="goal" label="Usage Purpose" />
+              <FieldHeader iconName="goal" label="Verwendungszweck" />
               <Controller
                 name="usagePurpose"
                 render={({ field }) => (
                   <SingleSelector
                     iconName="goal"
                     options={usagePurposeOptions}
-                    placeholder="In what context will you be using Quivr"
+                    placeholder="In welchem Zusammenhang werden Sie Bear Byte KI verwenden?"
                     selectedOption={
                       field.value
                         ? {
@@ -116,14 +116,14 @@ export const OnboardingModal = (): JSX.Element => {
               />
             </div>
             <div>
-              <FieldHeader iconName="hashtag" label="Size of your company" />
+              <FieldHeader iconName="hashtag" label="Größe Ihrer Firma" />
               <Controller
                 name="companySize"
                 render={({ field }) => (
                   <SingleSelector
                     iconName="hashtag"
                     options={companySizeOptions}
-                    placeholder="Number of employees in your company"
+                    placeholder="Anzahl der Beschäftigten in Ihrem Betrieb"
                     selectedOption={
                       field.value
                         ? {
@@ -141,7 +141,7 @@ export const OnboardingModal = (): JSX.Element => {
           <div className={styles.button_wrapper}>
             <QuivrButton
               iconName="chevronRight"
-              label="Submit"
+              label="Einreichen"
               color="primary"
               onClick={() => submitForm()}
               disabled={!username}

@@ -28,14 +28,14 @@ const KnowledgeItem = ({
 
   const options: Option[] = [
     {
-      label: "Delete",
+      label: "Löschen",
       onClick: () => void onDeleteKnowledge(knowledge),
       iconName: "delete",
       iconColor: "dangerous",
       disabled: brain?.role !== "Owner",
     },
     {
-      label: "Download",
+      label: "Herunterladen",
       onClick: () => void downloadFile(),
       iconName: "download",
       iconColor: "primary",
@@ -64,7 +64,7 @@ const KnowledgeItem = ({
 
         window.URL.revokeObjectURL(blobUrl);
       } catch (error) {
-        console.error("Error downloading the file:", error);
+        console.error("Fehler beim Herunterladen der Datei:", error);
       }
     }
     setOptionsOpened(false);

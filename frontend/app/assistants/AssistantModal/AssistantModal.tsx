@@ -26,11 +26,11 @@ export const AssistantModal = ({
 }: AssistantModalProps): JSX.Element => {
   const steps: Step[] = [
     {
-      label: "Inputs",
+      label: "Eingaben",
       value: "FIRST_STEP",
     },
     {
-      label: "Outputs",
+      label: "Ausgaben",
       value: "SECOND_STEP",
     },
   ];
@@ -102,14 +102,14 @@ export const AssistantModal = ({
           {currentStep === "FIRST_STEP" ? (
             <MessageInfoBox type="tutorial">
               <div className={styles.message_wrapper}>
-                <span className={styles.title}>Expected Input</span>
+                <span className={styles.title}>Erwartete Eingabe</span>
                 {assistant.input_description}
               </div>
             </MessageInfoBox>
           ) : (
             <MessageInfoBox type="tutorial">
               <div className={styles.message_wrapper}>
-                <span className={styles.title}>Output</span>
+                <span className={styles.title}>Ausgabe</span>
                 {assistant.output_description}
               </div>
             </MessageInfoBox>
@@ -129,7 +129,7 @@ export const AssistantModal = ({
         <div className={styles.button}>
           {currentStep === "FIRST_STEP" ? (
             <QuivrButton
-              label="Next"
+              label="Nächste"
               color="primary"
               iconName="chevronRight"
               onClick={() => setCurrentStep("SECOND_STEP")}
@@ -137,7 +137,7 @@ export const AssistantModal = ({
             />
           ) : (
             <QuivrButton
-              label="Process"
+              label="Prozess"
               color="primary"
               iconName="chevronRight"
               onClick={() => handleProcessAssistant()}

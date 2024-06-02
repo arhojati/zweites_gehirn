@@ -46,26 +46,26 @@ class SummaryAssistant(ITO):
 
     def check_input(self):
         if not self.files:
-            raise ValueError("No file was uploaded")
+            raise ValueError("Keine Datei wurde hochgeladen")
         if len(self.files) > 1:
-            raise ValueError("Only one file can be uploaded")
+            raise ValueError("Nur eine Datei kann hochgeladen werden")
         if not self.input.inputs.files:
-            raise ValueError("No files key were given in the input")
+            raise ValueError("In der Eingabe wurden keine Dateischlüssel angegeben")
         if len(self.input.inputs.files) > 1:
-            raise ValueError("Only one file can be uploaded")
+            raise ValueError("Nur eine Datei kann hochgeladen werden")
         if not self.input.inputs.files[0].key == "doc_to_summarize":
-            raise ValueError("The key of the file should be doc_to_summarize")
+            raise ValueError("Der Schlüssel der Datei sollte doc_to_summarize sein")
         if not self.input.inputs.files[0].value:
-            raise ValueError("No file was uploaded")
+            raise ValueError("eine Datei wurde hochgeladen")
         # Check if name of file is same as the key
         if not self.input.inputs.files[0].value == self.files[0].filename:
             raise ValueError(
-                "The key of the file should be the same as the name of the file"
+                "Der Schlüssel der Datei sollte derselbe sein wie der Name der Datei"
             )
         if not (
             self.input.outputs.brain.activated or self.input.outputs.email.activated
         ):
-            raise ValueError("No output was selected")
+            raise ValueError("Es wurde kein Ausgang ausgewählt")
         return True
 
     async def process_assistant(self):
@@ -73,7 +73,7 @@ class SummaryAssistant(ITO):
         try:
             self.increase_usage_user()
         except Exception as e:
-            logger.error(f"Error increasing usage: {e}")
+            logger.error(f"Fehler bei der Erhöhung der Nutzung: {e}")
             return {"error": str(e)}
 
         # Create a temporary file with the uploaded file as a temporary file and then pass it to the loader

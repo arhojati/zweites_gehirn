@@ -45,7 +45,7 @@ export const UploadDocumentModal = (): JSX.Element => {
         <KnowledgeToFeed />
         <div className={styles.button}>
           <QuivrButton
-            label="Feed Brain"
+            label="Gehirn füttern"
             color="primary"
             iconName="add"
             onClick={handleFeedBrain}

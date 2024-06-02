@@ -62,7 +62,7 @@ export const Menu = (): JSX.Element => {
               onMouseLeave={() => setIsLogoHovered(false)}
             >
               <QuivrLogo
-                size={50}
+                size={150}
                 color={
                   isLogoHovered ? "primary" : isDarkMode ? "white" : "black"
                 }

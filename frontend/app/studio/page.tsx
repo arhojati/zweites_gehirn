@@ -22,13 +22,13 @@ const Studio = (): JSX.Element => {
 
   const studioTabs: Tab[] = [
     {
-      label: "Manage my brains",
+      label: "Meine Gehirne verwalten",
       isSelected: selectedTab === "Manage my brains",
       onClick: () => setSelectedTab("Manage my brains"),
       iconName: "edit",
     },
     {
-      label: "Analytics",
+      label: "Analytik",
       isSelected: selectedTab === "Analytics",
       onClick: () => setSelectedTab("Analytics"),
       iconName: "graph",
@@ -37,7 +37,7 @@ const Studio = (): JSX.Element => {
 
   const buttons: ButtonType[] = [
     {
-      label: "Create brain",
+      label: "Gehirn erstellen",
       color: "primary",
       onClick: () => {
         setIsBrainCreationModalOpened(true);
@@ -45,7 +45,7 @@ const Studio = (): JSX.Element => {
       iconName: "brain",
     },
     {
-      label: "Add knowledge",
+      label: "Wissen hinzufügen",
       color: "primary",
       onClick: () => {
         setShouldDisplayFeedCard(true);
@@ -59,7 +59,7 @@ const Studio = (): JSX.Element => {
       <div className={styles.page_header}>
         <PageHeader
           iconName="brainCircuit"
-          label="Brain Studio"
+          label="Gehirn Studio"
           buttons={buttons}
         />
       </div>

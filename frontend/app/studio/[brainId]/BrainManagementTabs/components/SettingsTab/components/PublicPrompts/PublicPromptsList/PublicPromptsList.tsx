@@ -37,7 +37,7 @@ export const PublicPromptsList = ({
             }
           : undefined
       }
-      placeholder="Select a Quivr prompt"
+      placeholder="Wählen Sie einen Prompt"
       onChange={(clickedOption) => {
         const findedOption = options.find(
           (option) => option.id === clickedOption

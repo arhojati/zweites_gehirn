@@ -50,9 +50,9 @@ export const Analytics = (): JSX.Element => {
   const [selectedBrainId, setSelectedBrainId] = useState<string | null>(null);
 
   const graphRangeOptions = [
-    { label: "Last 7 days", value: Range.WEEK },
-    { label: "Last 30 days", value: Range.MONTH },
-    { label: "Last 90 days", value: Range.QUARTER },
+    { label: "Letzte 7 Tage", value: Range.WEEK },
+    { label: "Letzte 30 Tage", value: Range.MONTH },
+    { label: "Letzte 90 Tage", value: Range.QUARTER },
   ];
 
   const brainsWithUploadRights =
@@ -79,11 +79,11 @@ export const Analytics = (): JSX.Element => {
           labels: chartLabels,
           datasets: [
             {
-              label: `Daily questions to ${
+              label: `Tägliche Fragen an ${
                 selectedBrainId
                   ? allBrains.find((brain) => brain.id === selectedBrainId)
                       ?.name
-                  : "your brains"
+                  : "Ihr Gehirn"
               }`,
               data: chartDataset,
               borderColor: "rgb(75, 192, 192)",
@@ -139,7 +139,7 @@ export const Analytics = (): JSX.Element => {
                     options={graphRangeOptions}
                     onChange={(option) => handleGraphRangeChange(option)}
                     selectedOption={selectedGraphRangeOption}
-                    placeholder="Select range"
+                    placeholder="Bereich auswählen"
                   />
                 </div>
                 <div className={styles.selector}>
@@ -158,7 +158,7 @@ export const Analytics = (): JSX.Element => {
                           }
                         : undefined
                     }
-                    placeholder="Select specific brain"
+                    placeholder="Bestimmtes Gehirn auswählen"
                   />
                 </div>
               </div>
@@ -170,7 +170,7 @@ export const Analytics = (): JSX.Element => {
         </div>
       ) : (
         <MessageInfoBox type="warning">
-          This feature is not available on small screens
+          Diese Funktion ist auf kleinen Bildschirmen nicht verfügbar
         </MessageInfoBox>
       )}
     </div>

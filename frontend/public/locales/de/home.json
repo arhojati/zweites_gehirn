@@ -1,0 +1,36 @@
+{
+    "sign_in": "Anmelden",
+    "docs": "Doku",
+    "pricing": "Preisangaben",
+    "sign_up": "Registrieren",
+    "star_us": "Sternchen auf Github",
+    "blog": "Blog",
+    "sponsored_by": "Gesponsert von",
+    "useCases": {
+        "title": "Erleben Sie es jetzt.",
+        "subtitle": "Sehen Sie sich unser Beispiel zur Verwendung der App an"
+    },
+    "intro": {
+        "title": "Holen Sie sich ein zweites Gehirn mit",
+        "subtitle": "Ihr Produktivitätsassistent mit Verbindung zu Ihren Dateien und Lieblingsanwendungen",
+        "try_demo": "Kostenlose Demo ausprobieren",
+        "contact_sales": "Kontakt zum Verkaufsteam"
+    },
+    "demo": {
+        "title": "Demo-Video",
+        "start_now": "Jetzt anfangen"
+    },
+    "security": {
+        "cta": "Starten Sie noch heute "
+    },
+    "footer": {
+        "title": "Starten Sie noch heute",
+        "description_1": "Ihr persönlicher Assistent, der als Ihr zweites Gehirn fungiert.",
+        "description_2": "Laden Sie einfach Ihre Dateien hoch und stellen Sie Fragen dazu.",
+        "start_using": "Starten Sie die Nutzung der App",
+        "contact_sales": "Kontakt zum Verkaufsteam"
+    },
+    "testimonials": {
+        "title": "Was die Leute sagen über"
+    }
+}

@@ -30,10 +30,10 @@ export const FromDocuments = (): JSX.Element => {
       <Icon name="upload" size="big" color={dragging ? "accent" : "black"} />
       <div className={styles.input}>
         <div className={styles.clickable}>
-          <span>Choose files</span>
+          <span>Wählen Sie Dateien</span>
           <input {...getInputProps()} />
         </div>
-        <span>or drag it here</span>
+        <span>oder ziehen Sie es hierher</span>
       </div>
     </div>
   );

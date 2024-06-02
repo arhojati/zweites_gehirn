@@ -13,7 +13,7 @@ const KnowledgeTable = React.forwardRef<HTMLDivElement, KnowledgeTableProps>(
   ({ knowledgeList }, ref) => {
     return (
       <div ref={ref} className={styles.knowledge_table_wrapper}>
-        <span className={styles.title}>Uploaded Knowledge</span>
+        <span className={styles.title}>Hochgeladenes Wissen</span>
         <div>
           {knowledgeList.map((knowledge) => (
             <KnowledgeItem knowledge={knowledge} key={knowledge.id} />

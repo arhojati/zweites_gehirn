@@ -42,7 +42,7 @@ const Search = (): JSX.Element => {
 
   const buttons: ButtonType[] = [
     {
-      label: "Create brain",
+      label: "Gehirn erstellen",
       color: "primary",
       onClick: () => {
         setIsBrainCreationModalOpened(true);
@@ -55,15 +55,15 @@ const Search = (): JSX.Element => {
     <>
       <div className={styles.main_container}>
         <div className={styles.page_header}>
-          <PageHeader iconName="home" label="Home" buttons={buttons} />
+          <PageHeader iconName="home" label="Startseite" buttons={buttons} />
         </div>
         <div className={styles.search_page_container}>
           <div className={styles.main_wrapper}>
             <div className={styles.quivr_logo_wrapper}>
-              <QuivrLogo size={80} color={isDarkMode ? "white" : "black"} />
+              <QuivrLogo size={240} color={isDarkMode ? "white" : "black"} />
               <div className={styles.quivr_text}>
-                <span>Talk to </span>
-                <span className={styles.quivr_text_primary}>Quivr</span>
+                <span>Chat mit </span>
+                <span className={styles.quivr_text_primary}>Dolphine.AI</span>
               </div>
             </div>
             <div className={styles.search_bar_wrapper}>
@@ -72,9 +72,9 @@ const Search = (): JSX.Element => {
           </div>
           <div className={styles.shortcuts_card_wrapper}>
             <div className={styles.shortcut_wrapper}>
-              <span>Press</span>
+              <span>Tippe</span>
               <span className={styles.shortcut}>@</span>
-              <span>to select a brain</span>
+              <span>, um ein Gehirn auszuwählen</span>
             </div>
           </div>
         </div>
@@ -89,14 +89,12 @@ const Search = (): JSX.Element => {
             <div className={styles.main_message_wrapper}>
               <MessageInfoBox type="tutorial">
                 <div className={styles.main_message}>
-                  <span>Welcome {userIdentityData?.username}!</span>
+                  <span>Willkommen {userIdentityData?.username}!</span>
                   <span>
-                    We will guide you through your quivr adventure and the
-                    creation of your first brain.
+                    Wir begleiten dich durch dein Dolphine.AI Abenteuer und die Erstellung deines ersten Gehirns.
                   </span>
                   <span className={styles.bolder}>
-                    First, Press the Create Brain button on the top right corner
-                    to create your first brain.
+                    Klicken Sie zuerst auf die Taste Gehirn erstellen in der oberen rechten Ecke um dein erstes Gehirn zu erstellen.
                   </span>
                 </div>
               </MessageInfoBox>
@@ -104,7 +102,7 @@ const Search = (): JSX.Element => {
             <div className={styles.first_brain_button}>
               <QuivrButton
                 iconName="brain"
-                label="Create Brain"
+                label="Gehirn erstellen"
                 color="primary"
                 onClick={() => {
                   setIsBrainCreationModalOpened(true);

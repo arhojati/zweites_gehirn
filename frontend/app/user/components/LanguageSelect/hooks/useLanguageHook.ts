@@ -11,6 +11,11 @@ export type Language = {
 
 export const languages: Language[] = [
   {
+    label: "Deutsch",
+    flag: "🇩🇪",
+    shortName: "de",
+  },
+  {
     label: "English",
     flag: "🇬🇧",
     shortName: "en",

@@ -39,7 +39,7 @@ async def upload_file(
         CreateNotification(
             user_id=current_user,
             status=NotificationsStatusEnum.INFO,
-            title=f"Processing File {upload_file.filename}",
+            title=f"Datei {upload_file.filename} verarbeiten",
         )
     )
 
@@ -49,7 +49,7 @@ async def upload_file(
     maybe_send_telemetry("upload_file", {"file_name": upload_file.filename})
     file_size = get_file_size(upload_file)
     if remaining_free_space - file_size < 0:
-        message = f"Brain will exceed maximum capacity. Maximum file allowed is : {convert_bytes(remaining_free_space)}"
+        message = f"Gehirn wird die maximale Kapazität überschreiten. Die maximal zulässige Datei ist: {convert_bytes(remaining_free_space)}"
         raise HTTPException(status_code=403, detail=message)
 
     file_content = await upload_file.read()
@@ -66,17 +66,17 @@ async def upload_file(
             upload_notification.id if upload_notification else None,
             NotificationUpdatableProperties(
                 status=NotificationsStatusEnum.ERROR,
-                description=f"There was an error uploading the file: {e}",
+                description=f"Beim Hochladen der Datei ist ein Fehler aufgetreten: {e}",
             ),
         )
         if "The resource already exists" in str(e):
             raise HTTPException(
                 status_code=403,
-                detail=f"File {upload_file.filename} already exists in storage.",
+                detail=f"Datei {upload_file.filename} bereites im Speicher vorhanden.",
             )
         else:
             raise HTTPException(
-                status_code=500, detail=f"Failed to upload file to storage. {e}"
+                status_code=500, detail=f"Datei konnte nicht in den Speicher hochgeladen werden. {e}"
             )
 
     knowledge_to_add = CreateKnowledgeProperties(
@@ -95,4 +95,4 @@ async def upload_file(
         brain_id=brain_id,
         notification_id=upload_notification.id,
     )
-    return {"message": "File processing has started."}
+    return {"message": "Die Verarbeitung der Datei hat begonnen."}

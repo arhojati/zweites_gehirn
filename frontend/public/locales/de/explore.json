@@ -1,0 +1,15 @@
+{
+    "title": "Hochgeladene Daten erkunden",
+    "subtitle": "Von Ihrem Gehirn verwendetes Wissen anzeigen, herunterladen oder löschen",
+    "empty": "Oh nein, Ihr Gehirn ist leer.",
+    "noBrain": "Gehirn-ID nicht gefunden",
+    "sessionNotFound": "Benutzer-Sitzung nicht gefunden",
+    "deleted": "{{fileName}} aus dem Gehirn {{brain}} gelöscht",
+    "errorDeleting": "Fehler beim Löschen von {{fileName}}",
+    "view": "Ansehen",
+    "chunkNumber": "Anzahl der Chunks: {{quantity}}",
+    "notAvailable": "Nicht verfügbar",
+    "deleteConfirmTitle": "Bestätigen",
+    "deleteConfirmText": "Wollen Sie wirklich löschen?",
+    "feed_brain_instructions": "Um Wissen zu einem Gehirn hinzuzufügen, gehen Sie auf die Chat-Seite und klicken Sie auf die Plus-Schaltfläche links neben dem Chat-Eingang"
+    }

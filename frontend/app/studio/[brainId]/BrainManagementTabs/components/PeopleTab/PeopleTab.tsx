@@ -33,7 +33,7 @@ export const PeopleTab = ({ brainId }: ShareBrainModalProps): JSX.Element => {
         }}
       >
         <div className={styles.section_wrapper}>
-          <span className={styles.section_title}>Invite new users</span>
+          <span className={styles.section_title}>Neue Benutzer einladen</span>
           {roleAssignations.map((roleAssignation, index) => (
             <UserToInvite
               key={roleAssignation.id}
@@ -46,14 +46,14 @@ export const PeopleTab = ({ brainId }: ShareBrainModalProps): JSX.Element => {
             <QuivrButton
               onClick={addNewRoleAssignationRole}
               disabled={sendingInvitation || !canAddNewRow}
-              label="Add new user"
+              label="Neuen Benutzer hinzufügen"
               color="primary"
               iconName="add"
             ></QuivrButton>
             <QuivrButton
               isLoading={sendingInvitation}
               disabled={roleAssignations.length === 0}
-              label="Invite"
+              label="einladen"
               color="primary"
               iconName="share"
               onClick={inviteUsers}
@@ -62,7 +62,7 @@ export const PeopleTab = ({ brainId }: ShareBrainModalProps): JSX.Element => {
         </div>
       </form>
       <div className={styles.section_wrapper}>
-        <span className={styles.section_title}>Users with access</span>
+        <span className={styles.section_title}>Benutzer mit Zugang</span>
         <BrainUsers brainId={brainId} />
       </div>
     </div>

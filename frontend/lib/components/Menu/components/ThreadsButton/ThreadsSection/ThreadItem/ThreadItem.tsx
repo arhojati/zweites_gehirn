@@ -36,13 +36,13 @@ export const ThreadItem = ({
 
   const options: Option[] = [
     {
-      label: "Edit",
+      label: "Bearbeiten",
       onClick: () => onNameEdited(),
       iconName: "edit",
       iconColor: "primary",
     },
     {
-      label: "Delete",
+      label: "Löschen",
       onClick: () => void deleteChat(),
       iconName: "delete",
       iconColor: "dangerous",

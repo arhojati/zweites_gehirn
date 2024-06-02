@@ -10,7 +10,7 @@ export const AssistantsButton = (): JSX.Element => {
   return (
     <Link href={`/assistants`}>
       <MenuButton
-        label="Quivr Assistants"
+        label="KI Assistenten"
         isSelected={isSelected}
         iconName="assistant"
         type="open"

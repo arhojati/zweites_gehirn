@@ -33,7 +33,7 @@ const SelectedChatPage = (): JSX.Element => {
 
   const buttons: ButtonType[] = [
     {
-      label: "Create brain",
+      label: "Gehirn erstellen",
       color: "primary",
       onClick: () => {
         setIsBrainCreationModalOpened(true);
@@ -41,7 +41,7 @@ const SelectedChatPage = (): JSX.Element => {
       iconName: "brain",
     },
     {
-      label: "Add knowledge",
+      label: "Wissen hinzufügen",
       color: "primary",
       onClick: () => {
         setShouldDisplayFeedCard(true);
@@ -50,7 +50,7 @@ const SelectedChatPage = (): JSX.Element => {
       hidden: !currentBrain?.max_files,
     },
     {
-      label: "Manage current brain",
+      label: "Aktuelles Gehirn verwalten",
       color: "primary",
       onClick: () => {
         window.location.href = `/studio/${currentBrain?.id}`;

@@ -79,7 +79,7 @@ def process_file_and_notify(
                     notification_id,
                     NotificationUpdatableProperties(
                         status=NotificationsStatusEnum.SUCCESS,
-                        description="Your file has been properly uploaded!",
+                        description="Ihre Datei wurde ordnungsgemäß hochgeladen!",
                     ),
                 )
             brain_service.update_brain_last_update_time(brain_id)
@@ -93,7 +93,7 @@ def process_file_and_notify(
             notification_id,
             NotificationUpdatableProperties(
                 status=NotificationsStatusEnum.ERROR,
-                description=f"An error occurred while processing the file: {e}",
+                description=f"Bei der Verarbeitung der Datei ist ein Fehler aufgetreten: {e}",
             ),
         )
         return False
@@ -132,7 +132,7 @@ def process_crawl_and_notify(
             notification_id,
             NotificationUpdatableProperties(
                 status=NotificationsStatusEnum.SUCCESS,
-                description=f"Your URL has been properly crawled!",
+                description=f"Ihre URL wurde ordnungsgemäß gecrawlt!",
             ),
         )
     else:
@@ -149,7 +149,7 @@ def process_crawl_and_notify(
             notification_id,
             NotificationUpdatableProperties(
                 status=NotificationsStatusEnum.SUCCESS,
-                description="Your file has been properly uploaded!",
+                description="Ihre Datei wurde ordnungsgemäß hochgeladen!",
             ),
         )
 

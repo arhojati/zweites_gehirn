@@ -1,0 +1,11 @@
+{
+    "deleteButton": "Gehirn löschen",
+    "deleteConfirmQuestion": "Sind Sie sicher, dass Sie dieses Gehirn löschen wollen? Diese Aktion kann nicht rückgängig gemacht werden.",
+    "deleteConfirmYes": "Ja, löschen Sie dieses Gehirn",
+    "returnButton": "Zurück",
+    "unsubscribeButton": "Abmelden von brain",
+    "unsubscribeConfirmQuestion": "Sind Sie sicher, dass Sie sich von diesem Gehirn abmelden wollen?",
+    "unsubscribeConfirmYes": "Ja, von diesem Gehirn abmelden",
+    "successfully_deleted": "Gehirn erfolgreich gelöscht.",
+    "successfully_unsubscribed": "Sie haben sich erfolgreich von diesem Gehirn abgemeldet."
+}

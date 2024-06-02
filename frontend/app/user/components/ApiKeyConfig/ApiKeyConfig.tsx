@@ -16,14 +16,14 @@ export const ApiKeyConfig = (): JSX.Element => {
 
   return (
     <div>
-      <FieldHeader iconName="key" label={`Quivr ${t("apiKey")}`} />
+      <FieldHeader iconName="key" label={`Dolphine.AI ${t("apiKey")}`} />
       {apiKey === "" ? (
         <Button
           data-testid="create-new-key"
           variant="secondary"
           onClick={() => void handleCreateClick()}
         >
-          Create New Key
+          Neuen Schlüssel erstellen
         </Button>
       ) : (
         <div className={styles.response_wrapper}>

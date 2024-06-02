@@ -37,13 +37,13 @@ export const GeneralInformation = (
         </div>
 
         <div className={styles.field_wrapper}>
-          <FieldHeader label="Description" iconName="paragraph" />
+          <FieldHeader label="Beschreibung" iconName="paragraph" />
           <Controller
             name="description"
             defaultValue=""
             render={({ field }) => (
               <TextAreaInput
-                label="Description"
+                label="Beschreibung"
                 inputValue={field.value as string}
                 setInputValue={field.onChange}
                 disabled={!hasEditRights}

@@ -10,9 +10,9 @@ import "./globals.css";
 import styles from "./layout.module.scss";
 
 export const metadata = {
-  title: "Quivr - Get a Second Brain with Generative AI",
+  title: "Dolphine.AI - Holen Sie sich ein zweites Gehirn mit generativer KI",
   description:
-    "Quivr is your second brain in the cloud, designed to easily store and retrieve unstructured information.",
+    "Dolphine.AI ist Ihr zweites Gehirn, mit dem Sie unstrukturierte Informationen einfach speichern und abrufen können.",
 };
 
 const RootLayout = async ({
@@ -30,7 +30,7 @@ const RootLayout = async ({
   } = await supabase.auth.getSession();
 
   return (
-    <html lang="en">
+    <html lang="de">
       <body
         className={styles.body}
         // className={`bg-white text-black h-screen flex flex-col dark:bg-black dark:text-white w-full ${inter.className}`}

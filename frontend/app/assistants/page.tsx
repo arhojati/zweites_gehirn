@@ -47,30 +47,22 @@ const Search = (): JSX.Element => {
       <div className={styles.page_header}>
         <PageHeader
           iconName="assistant"
-          label="Quivr Assistants"
+          label="KI Assistenten"
           buttons={[]}
         />
         <div className={styles.content_wrapper}>
           <MessageInfoBox type="info">
             <div className={styles.message_wrapper}>
               <span>
-                A Quivr Assistant is an AI agent that apply specific processes
-                to an input in order to generate a usable output.
+              Ein KI-Assistent ist ein KI-Agent, der bestimmte Prozesse auf 
+              eine Eingabe anwendet, um eine verwertbare Ausgabe zu erzeugen.
               </span>
               <span>
-                For now, you can try the summary assistant, that summarizes a
-                document and send the result by email or upload it in one of
-                your brains.
+              Zunächst können Sie den Zusammenfassungsassistenten ausprobieren, 
+              der ein Dokument zusammenfasst Dokument zusammenfasst und das Ergebnis 
+              per E-Mail versendet oder in eines Ihrer Ihrem Gehirn hochladen.
               </span>
-              <span> But don&apos;t worry! Other assistants are cooking!</span>
-            </div>
-          </MessageInfoBox>
-          <MessageInfoBox type="warning">
-            <div className={styles.message_wrapper}>
-              <span>
-                <strong>Feature still in Beta.</strong> Please provide feedbacks
-                on the chat below!
-              </span>
+              <span> Aber keine Sorge! Andere Assistenten kochen schon!</span>
             </div>
           </MessageInfoBox>
           <div className={styles.assistants_grid}>

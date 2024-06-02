@@ -14,28 +14,28 @@ export const SocialsButtons = (): JSX.Element => {
         color="black"
         size="small"
         handleHover={true}
-        onClick={() => handleClick("https://github.com/QuivrHQ/quivr")}
+        onClick={() => handleClick("https://dolphine.ai/")}
       />
       <Icon
         name="linkedin"
         color="black"
         size="small"
         handleHover={true}
-        onClick={() => handleClick("https://www.linkedin.com/company/getquivr")}
+        onClick={() => handleClick("https://dolphine.ai/")}
       />
       <Icon
         name="twitter"
         color="black"
         size="small"
         handleHover={true}
-        onClick={() => handleClick("https://twitter.com/quivr_brain")}
+        onClick={() => handleClick("https://dolphine.ai/")}
       />
       <Icon
         name="discord"
         color="black"
         size="small"
         handleHover={true}
-        onClick={() => handleClick("https://discord.gg/HUpRgp2HG8")}
+        onClick={() => handleClick("https://dolphine.ai/")}
       />
     </div>
   );

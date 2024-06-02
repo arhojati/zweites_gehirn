@@ -28,7 +28,7 @@ export const CurrentBrain = ({
     <div className={styles.current_brain_wrapper}>
       <div className={styles.brain_infos}>
         <div className={styles.left}>
-          <span className={styles.title}>Talking to</span>
+          <span className={styles.title}>Gespräch mit</span>
           <div className={styles.brain_name_wrapper}>
             <Image
               className={isDarkMode ? styles.dark_image : ""}

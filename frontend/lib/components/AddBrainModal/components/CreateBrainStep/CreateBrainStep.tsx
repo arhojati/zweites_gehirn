@@ -84,12 +84,12 @@ export const CreateBrainStep = (): JSX.Element => {
         {!userIdentityData?.onboarded && (
           <MessageInfoBox type="tutorial">
             <span>
-              Upload documents or add URLs to add knowledges to your brain.
+            Laden Sie Dokumente hoch oder fügen Sie URLs hinzu, um Ihrem Gehirn Wissen hinzuzufügen.
             </span>
           </MessageInfoBox>
         )}
         <div>
-          <span className={styles.title}>Feed your brain</span>
+          <span className={styles.title}>Füttern Sie Ihr Gehirn</span>
           <KnowledgeToFeed hideBrainSelector={true} />
         </div>
       </>
@@ -100,15 +100,15 @@ export const CreateBrainStep = (): JSX.Element => {
     return (
       <MessageInfoBox type="info">
         <div className={styles.message_content}>
-          Click on
+          Klicken Sie auf
           <QuivrButton
-            label="Create"
+            label="Erstellen"
             color="primary"
             iconName="add"
             onClick={feed}
             isLoading={creating}
           />
-          to finish your brain creation.
+          um die Erstellung Ihres Gehirns abzuschließen.
         </div>
       </MessageInfoBox>
     );
@@ -118,7 +118,7 @@ export const CreateBrainStep = (): JSX.Element => {
     return (
       <div className={styles.buttons_wrapper}>
         <QuivrButton
-          label="Previous step"
+          label="Vorheriger Schritt"
           color="primary"
           iconName="chevronLeft"
           onClick={previous}
@@ -126,7 +126,7 @@ export const CreateBrainStep = (): JSX.Element => {
         {(!currentSelectedBrain?.max_files && !createBrainStepIndex) ||
         createBrainStepIndex ? (
           <QuivrButton
-            label="Create"
+            label="Erstellen"
             color="primary"
             iconName="add"
             onClick={feed}
@@ -138,7 +138,7 @@ export const CreateBrainStep = (): JSX.Element => {
           />
         ) : (
           <QuivrButton
-            label="Feed your brain"
+            label="Füttern Sie Ihr Gehirn"
             color="primary"
             iconName="add"
             onClick={() => setCreateBrainStepIndex(1)}

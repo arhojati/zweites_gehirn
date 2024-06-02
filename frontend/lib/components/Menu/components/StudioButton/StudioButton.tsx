@@ -10,7 +10,7 @@ export const StudioButton = (): JSX.Element => {
   return (
     <Link href={`/studio`}>
       <MenuButton
-        label="Brain Studio"
+        label="Gehirn Studio"
         isSelected={isSelected}
         iconName="brainCircuit"
         type="open"

@@ -74,7 +74,7 @@ export const SettingsTabContent = ({
             {hasEditRights && (
               <div className={styles.save_button}>
                 <QuivrButton
-                  label="Save"
+                  label="Speichern"
                   iconName="upload"
                   color="primary"
                   onClick={() => handleSubmit()}
@@ -86,8 +86,8 @@ export const SettingsTabContent = ({
             <div className={styles.prompt_wrapper}>
               <span className={styles.section_title}>Prompt</span>
               <MessageInfoBox type="info">
-                Select a suggested prompt or create your own for tailored
-                interactions
+              Wählen Sie einen vorgeschlagenen Prompt oder erstellen Sie 
+              einen eigenen für maßgeschneiderte Interaktionen
               </MessageInfoBox>
               <Prompt
                 usePromptProps={promptProps}

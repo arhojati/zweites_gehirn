@@ -1,0 +1,10 @@
+{
+    "title": "{{user}}s Gehirnnutzung",
+    "fetching": "Abrufen Ihrer Daten...",
+    "requestsCount": "Heutige Anfragen: {{count}}",
+    "brainSize": "Verbleibende Gehirngröße",
+    "empty": "Leer",
+    "Used": "Benutzt",
+    "Unused": "Unbenutzt",
+    "brainUsage": "Nutzung des Gehirns"
+    }

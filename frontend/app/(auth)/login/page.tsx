@@ -31,11 +31,11 @@ const Main = (): JSX.Element => {
     <div className={styles.login_page_wrapper}>
       <section className={styles.section}>
         <Link href="/" className={styles.logo_link}>
-          <QuivrLogo size={80} color={isDarkMode ? "white" : "black"} />
+          <QuivrLogo size={240} color={isDarkMode ? "white" : "black"} />
         </Link>
         <p className={styles.title}>
           {t("talk_to", { ns: "login" })}{" "}
-          <span className={styles.primary_text}>Quivr</span>
+          <span className={styles.primary_text}>Dolphine.AI</span>
         </p>
         <div className={styles.form_container}>
           <FormProvider {...methods}>

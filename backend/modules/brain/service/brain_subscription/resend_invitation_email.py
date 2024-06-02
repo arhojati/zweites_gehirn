@@ -34,8 +34,8 @@ def resend_invitation_email(
     brain_name = invitation_brain.name
 
     html_body = f"""
-    <p>Brain {brain_name} has been shared with you by {inviter_email}.</p>
-    <p><a href='{brain_url}'>Click here</a> to access your brain.</p>
+    <p>Gehirn {brain_name} wurde Ihnen von {inviter_email} zur Verfügung gestellt.</p>
+    <p><a href='{brain_url}'>Klicken Sie hier</a>, um auf das Gehirn zuzugreifen.</p>
     """
 
     try:
@@ -43,7 +43,7 @@ def resend_invitation_email(
             {
                 "sender": brains_settings.resend_email_address,
                 "to": brain_subscription.email,
-                "subject": "Quivr - Brain Shared With You",
+                "subject": 'ein "Dolphine.AI" Gehirn wurde mit Ihnen geteilt',
                 "html": html_body,
             }
         )

@@ -35,7 +35,7 @@ export const CopyButton = ({
     <button
       className="text-gray-500 hover:text-gray-700 transition"
       onClick={handleClick}
-      title={isCopied ? "Copied!" : "Copy to clipboard"}
+      title={isCopied ? "Kopiert!" : "In die Zwischenablage kopieren"}
     >
       <Icon
         name={isCopied ? "checkCircle" : "copy"}

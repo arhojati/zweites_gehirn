@@ -36,7 +36,7 @@ export const Prompt = (props: PromptProps): JSX.Element => {
           defaultValue=""
           render={({ field }) => (
             <TextInput
-              label="Choose a name for your prompt"
+              label="Wählen Sie einen Namen für Ihren Prompt"
               inputValue={field.value as string}
               setInputValue={field.onChange}
             />
@@ -44,13 +44,13 @@ export const Prompt = (props: PromptProps): JSX.Element => {
         />
       </div>
       <div>
-        <FieldHeader label="Prompt Instructions" iconName="paragraph" />
+        <FieldHeader label="Anweisungen zur Prompt" iconName="paragraph" />
         <Controller
           name="prompt.content"
           defaultValue=""
           render={({ field }) => (
             <TextAreaInput
-              label="Write specific instructions for your brain here"
+              label="Schreiben Sie hier spezifische Anweisungen für Ihr Gehirn"
               inputValue={field.value as string}
               setInputValue={field.onChange}
             />
@@ -62,14 +62,14 @@ export const Prompt = (props: PromptProps): JSX.Element => {
           <QuivrButton
             disabled={isUpdatingBrain || isRemovingPrompt}
             onClick={() => void removeBrainPrompt()}
-            label="Remove Prompt"
+            label="Prompt entfernen"
             color="dangerous"
             iconName="delete"
           ></QuivrButton>
         )}
         <div>
           <QuivrButton
-            label="Save"
+            label="Speichern"
             iconName="upload"
             color="primary"
             onClick={() => submitPrompt()}

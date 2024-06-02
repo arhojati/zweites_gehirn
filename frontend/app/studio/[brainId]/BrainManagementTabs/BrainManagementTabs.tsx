@@ -32,20 +32,20 @@ export const BrainManagementTabs = (): JSX.Element => {
 
   const brainManagementTabs: Tab[] = [
     {
-      label: "Settings",
+      label: "Einstellungen",
       isSelected: selectedTab === "Settings",
       onClick: () => setSelectedTab("Settings"),
       iconName: "settings",
     },
     {
-      label: "People",
+      label: "Menschen",
       isSelected: selectedTab === "People",
       onClick: () => setSelectedTab("People"),
       iconName: "user",
       disabled: !hasEditRights,
     },
     {
-      label: `Knowledge${allKnowledge.length > 1 ? "s" : ""} (${
+      label: `Wissen${allKnowledge.length > 1 ? "" : ""} (${
         allKnowledge.length
       })`,
       isSelected: selectedTab === "Knowledge",

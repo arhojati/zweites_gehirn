@@ -34,14 +34,14 @@ export const KnowledgeTab = ({
     return (
       <div className={styles.knowledge_tab_wrapper}>
         <MessageInfoBox type="warning">
-          This brain is empty! You can add knowledge by clicking on
+          Dieses Gehirn ist leer! Sie können Wissen hinzufügen, indem Sie auf
           <QuivrButton
-            label="Add knowledge"
+            label="Wissen hinzufügen"
             color="primary"
             iconName="add"
             onClick={() => setShouldDisplayFeedCard(true)}
           />
-          .
+          klicken.
         </MessageInfoBox>
       </div>
     );

@@ -12,7 +12,7 @@ export const BrainsList = ({ brains }: BrainsListProps): JSX.Element => {
     <div className={styles.brains_wrapper}>
       <div className={styles.columns}>
         <span className={styles.name}>Name</span>
-        <span className={styles.description}>Description</span>
+        <span className={styles.description}>Beschreibung</span>
       </div>
       {brains.map((brain, index) => (
         <div key={brain.id}>

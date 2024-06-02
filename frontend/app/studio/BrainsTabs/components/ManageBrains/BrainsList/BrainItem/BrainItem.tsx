@@ -40,13 +40,13 @@ export const BrainItem = ({ brain, even }: BrainItemProps): JSX.Element => {
 
   const options: Option[] = [
     {
-      label: "Edit",
+      label: "bearbeiten",
       onClick: () => (window.location.href = `/studio/${brain.id}`),
       iconName: "edit",
       iconColor: "primary",
     },
     {
-      label: "Delete",
+      label: "löschen",
       onClick: () => void setIsDeleteOrUnsubscribeModalOpened(true),
       iconName: "delete",
       iconColor: "dangerous",

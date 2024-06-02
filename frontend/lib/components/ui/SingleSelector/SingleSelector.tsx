@@ -88,7 +88,7 @@ export const SingleSelector = <T extends string | number | UUID>({
         {!folded && (
           <div className={styles.right}>
             <TextInput
-              label="Search..."
+              label="Suche..."
               inputValue={search}
               setInputValue={setSearch}
               simple={true}

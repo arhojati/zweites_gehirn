@@ -35,14 +35,14 @@ export const BrainMainInfosStep = (): JSX.Element => {
   return (
     <div className={styles.brain_main_infos_wrapper}>
       <div className={styles.inputs_wrapper}>
-        <span className={styles.title}>Define brain identity</span>
+        <span className={styles.title}>Definieren Sie die Gehirnidentität</span>
         <div>
           <FieldHeader iconName="brain" label="Name" mandatory={true} />
           <Controller
             name="name"
             render={({ field }) => (
               <TextInput
-                label="Enter your brain name"
+                label="Geben Sie den Namen Ihres Gehirns ein"
                 inputValue={field.value as string}
                 setInputValue={field.onChange}
               />
@@ -52,14 +52,14 @@ export const BrainMainInfosStep = (): JSX.Element => {
         <div>
           <FieldHeader
             iconName="paragraph"
-            label="Description"
+            label="Beschreibung"
             mandatory={true}
           />
           <Controller
             name="description"
             render={({ field }) => (
               <TextAreaInput
-                label="Enter your brain description"
+                label="Geben Sie Ihre Gehirnbeschreibung ein"
                 inputValue={field.value as string}
                 setInputValue={field.onChange}
               />
@@ -70,13 +70,13 @@ export const BrainMainInfosStep = (): JSX.Element => {
       <div className={styles.buttons_wrapper}>
         <QuivrButton
           color="primary"
-          label="Previous Step"
+          label="Vorheriger Schritt"
           onClick={() => previous()}
           iconName="chevronLeft"
         />
         <QuivrButton
           color="primary"
-          label="Next Step"
+          label="Nächster Schritt"
           onClick={() => next()}
           iconName="chevronRight"
           disabled={isDisabled}

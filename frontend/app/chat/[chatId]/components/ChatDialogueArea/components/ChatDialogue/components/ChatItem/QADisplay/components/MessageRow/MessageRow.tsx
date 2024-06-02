@@ -121,7 +121,7 @@ export const MessageRow = React.forwardRef(
         return (
           <div className={styles.message_header}>
             <Icon name="user" color="dark-grey" size="normal" />
-            <span className={styles.me}>Me</span>
+            <span className={styles.me}>Ich</span>
           </div>
         );
       }
@@ -156,7 +156,7 @@ export const MessageRow = React.forwardRef(
               {selectedSourceFile && (
                 <div className={styles.citations}>
                   <div className={styles.file_name_wrapper}>
-                    <span className={styles.box_title}>Source:</span>
+                    <span className={styles.box_title}>Quelle:</span>
                     <a
                       href={selectedSourceFile.file_url}
                       target="_blank"

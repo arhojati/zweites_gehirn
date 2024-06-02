@@ -36,13 +36,13 @@ export const KnowledgeToFeed = ({
 
   const knowledgesTabs: Tab[] = [
     {
-      label: "From documents",
+      label: "Von Dokumenten",
       isSelected: selectedTab === "From documents",
       onClick: () => setSelectedTab("From documents"),
       iconName: "file",
     },
     {
-      label: "From websites",
+      label: "Von Webseiten",
       isSelected: selectedTab === "From websites",
       onClick: () => setSelectedTab("From websites"),
       iconName: "website",
@@ -61,7 +61,7 @@ export const KnowledgeToFeed = ({
                 ? { label: currentBrain.name, value: currentBrain.id }
                 : undefined
             }
-            placeholder="Select a brain"
+            placeholder="Wählen Sie ein Gehirn"
             iconName="brain"
           />
         </div>
@@ -73,7 +73,7 @@ export const KnowledgeToFeed = ({
       </div>
       <div>
         <div className={styles.uploaded_knowledges_title}>
-          <span>Knowledges to upload</span>
+          <span>Wissen zum Hochladen</span>
           <span>{knowledgeToFeed.length}</span>
         </div>
         <div className={styles.uploaded_knowledges}>
