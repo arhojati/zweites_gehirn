@@ -44,9 +44,6 @@ const Main = (): JSX.Element => {
 
           {googleSso && <GoogleLoginButton />}
         </div>
-        <p className={styles.restriction_message}>
-          {t("restriction_message", { ns: "login" })}
-        </p>
       </section>
     </div>
   );
