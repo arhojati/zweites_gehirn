@@ -8,7 +8,7 @@ services:
       context: frontend
       dockerfile: Dockerfile
       args:
-        - NEXT_PUBLIC_ENV=local
+        - NEXT_PUBLIC_ENV=${NEXT_PUBLIC_ENV}
         - NEXT_PUBLIC_BACKEND_URL=${NEXT_PUBLIC_BACKEND_URL}
         - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
         - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
@@ -21,10 +21,11 @@ services:
     restart: always
     ports:
       - 3000:3000
+    networks:
+      - quivr-network
 
   backend-core:
     image: stangirard/quivr-backend-prebuilt:latest
-    pull_policy: if_not_present
     env_file:
       - .env
     build:
@@ -34,7 +35,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     healthcheck:
-      test: [ "CMD", "curl", "http://localhost:5050/healthz" ]
+      test: ["CMD", "curl", "http://localhost:5050/healthz"]
     command:
       - "uvicorn"
       - "main:app"
@@ -49,6 +50,8 @@ services:
       - ./backend/:/code/
     ports:
       - 5050:5050
+    networks:
+      - quivr-network
 
   redis:
     image: redis:latest@sha256:a7cee7c8178ff9b5297cb109e6240f5072cdaaafd775ce6b586c3c704b06458e
@@ -56,9 +59,10 @@ services:
     restart: always
     ports:
       - 6379:6379
+    networks:
+      - quivr-network
 
   worker:
-    pull_policy: if_not_present
     image: stangirard/quivr-backend-prebuilt:latest
     env_file:
       - .env
@@ -72,10 +76,11 @@ services:
     restart: always
     depends_on:
       - redis
+    networks:
+      - quivr-network
 
   beat:
     image: stangirard/quivr-backend-prebuilt:latest
-    pull_policy: if_not_present
     env_file:
       - .env
     build:
@@ -88,10 +93,11 @@ services:
     restart: always
     depends_on:
       - redis
+    networks:
+      - quivr-network
 
   flower:
     image: stangirard/quivr-backend-prebuilt:latest
-    pull_policy: if_not_present
     env_file:
       - .env
     build:
@@ -108,7 +114,9 @@ services:
       - beat
     ports:
       - 5555:5555
-  
+    networks:
+      - quivr-network
+
   nginx:
     image: nginx:latest
     container_name: zweites_gehirn_nginx
@@ -120,6 +128,9 @@ services:
       - ./certs:/etc/nginx/certs:ro
     depends_on:
       - frontend
+      - backend-core
+    networks:
+      - quivr-network
 
 networks:
   quivr-network:

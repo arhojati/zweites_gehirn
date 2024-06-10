@@ -56,6 +56,7 @@ const ContentSecurityPolicy = {
     "*.intercomcdn.com",
     "https://*.vercel.app",
     process.env.NEXT_PUBLIC_FRONTEND_URL,
+    "*.virawelt.com",
   ],
   "connect-src": [
     "'self'",
@@ -71,6 +72,7 @@ const ContentSecurityPolicy = {
     "https://cdn.growthbook.io",
     "https://vitals.vercel-insights.com/v1/vitals",
     "https://us.posthog.com",
+    "*.virawelt.com",
   ],
   "img-src": [
     "'self'",
@@ -80,6 +82,7 @@ const ContentSecurityPolicy = {
     "https://quivr-cms.s3.eu-west-3.amazonaws.com",
     "data:",
     "*",
+    "*.virawelt.com",
   ],
   "media-src": [
     "'self'",
@@ -89,6 +92,7 @@ const ContentSecurityPolicy = {
     "https://preview.quivr.app",
     "https://chat.quivr.app",
     "https://*.vercel.app",
+    "*.virawelt.com",
   ],
   "script-src": [
     "'unsafe-inline'",
@@ -102,6 +106,7 @@ const ContentSecurityPolicy = {
     "https://www.google-analytics.com/",
     "https://js.stripe.com",
     "https://us.posthog.com",
+    "*.virawelt.com",
   ],
   "frame-src": ["https://js.stripe.com", "https://us.posthog.com"],
   "frame-ancestors": ["'none'"],
@@ -110,6 +115,7 @@ const ContentSecurityPolicy = {
     process.env.NEXT_PUBLIC_FRONTEND_URL,
     "https://preview.quivr.app",
     "https://*.vercel.app",
+    "*.virawelt.com",
   ],
 };
 
