@@ -1,154 +1,97 @@
-# Quivr - Your Second Brain, Empowered by Generative AI
+---
+sidebar_position: 1
+title: Install on your Server
+---
 
-<div align="center">
-    <img src="./logo.png" alt="Quivr-logo" width="30%"  style="border-radius: 50%; padding-bottom: 20px"/>
-</div>
+# Quivr Installation Guide on Ubuntu 22 Server
 
-[![Discord Follow](https://dcbadge.vercel.app/api/server/HUpRgp2HG8?style=flat)](https://discord.gg/HUpRgp2HG8)
-[![GitHub Repo stars](https://img.shields.io/github/stars/quivrhq/quivr?style=social)](https://github.com/quivrhq/quivr)
-[![Twitter Follow](https://img.shields.io/twitter/follow/StanGirard?style=social)](https://twitter.com/_StanGirard)
+Welcome to the installation guide for Quivr, your go-to open-source project . This tutorial will walk you through the process of setting up Quivr on an Ubuntu 22.04 server with Docker and Traefik, ensuring a secure HTTPS connection for your domains.
 
-Quivr, your second brain, utilizes the power of GenerativeAI to be your personal assistant ! Think of it as Obsidian, but turbocharged with AI capabilities.
+## Table of Contents
 
-[Roadmap here](https://docs.quivr.app/docs/roadmap)
+- [Quivr Installation Guide on Ubuntu 22 Server](#quivr-installation-guide-on-ubuntu-22-server)
+  - [Table of Contents](#table-of-contents)
+  - [Prerequisites](#prerequisites)
+  - [Step-by-Step Installation](#step-by-step-installation)
+    - [Step 1: Clone Quivr Repository](#step-1-clone-quivr-repository)
+    - [Step 2: Create `.env` File](#step-2-create-env-file)
+    - [Step 3: Configure `.env` Files for Backend and Frontend](#step-3-configure-env-files-for-backend-and-frontend)
+    - [Step 4: Launch Quivr with Docker Compose](#step-4-launch-quivr-with-docker-compose)
+    - [Step 5: Verify Installation](#step-5-verify-installation)
+  - [Additional Information](#additional-information)
 
-## Key Features 🎯
+## Prerequisites
 
-- **Fast and Efficient**: Designed with speed and efficiency at its core. Quivr ensures rapid access to your data.
-- **Secure**: Your data, your control. Always.
-- **OS Compatible**: Ubuntu 22 or newer.
-- **File Compatibility**: Text, Markdown, PDF, Powerpoint, Excel, CSV, Word, Audio, Video
-- **Open Source**: Freedom is beautiful, and so is Quivr. Open source and free to use.
-- **Public/Private**: Share your brains with your users via a public link, or keep them private.
-- **Marketplace**: Share your brains with the world, or use other people's brains to boost your productivity.
-- **Offline Mode**: Quivr works offline, so you can access your data anytime, anywhere.
+Before diving into the installation process, please ensure you have the following ready:
 
-## Demo Highlights 🎥
+- An **Ubuntu 22.04 server** with at least **20 GB of free disk space**.
+- **Docker** installed. If you haven't done this yet, no worries! Follow the official [Docker Installation Guide for Ubuntu](https://docs.docker.com/engine/install/ubuntu/).
+- **DNS records** configured to point to your server. You will need records for the following:
+  - `flower.api.yourdomain`
+  - `api.yourdomain`
+  - `yourdomain`
 
-https://github.com/quivrhq/quivr/assets/19614572/a6463b73-76c7-4bc0-978d-70562dca71f5
+> Replace `<yourdomain>` with your actual domain name throughout this guide. This domain also could be a subdomain like `bot.<yourdomain>.com`. In this case in your DNS configuration make sure that `bot.<yourdomain.com>` is also pointing to the IP address of your server, like you did with "flower.api" and "api".
 
-## Getting Started 🚀
+## Step-by-Step Installation
 
-Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
+### Step 1: Clone Quivr Repository
 
-You can find everything on the [documentation](https://docs.quivr.app/).
+Let's get started by cloning the Quivr repository onto your server. Open your terminal and run:
 
-### Prerequisites 📋
+```bash
+git clone https://github.com/StanGirard/quivr.git
+cd quivr
+```
 
-Ensure you have the following installed:
+### Step 2: Create `.env` File
 
-- Docker
-- Docker Compose
+Now, let's set up your environment variables. In the root directory of the Quivr project, create a `.env` file:
 
-### 60 seconds Installation 💽
+```bash
+nano .env
+```
 
-You can find the installation video [here](https://www.youtube.com/watch?v=cXBa6dZJN48).
+Add the following lines, making sure to replace the placeholders with your information:
 
-- **Step 0**: Supabase CLI
+```
+EMAIL=your-email@example.com
+DOMAIN_NAME=yourdomain.com
+API_DOMAIN_NAME=api.yourdomain.com
+```
 
-  Follow the instructions [here](https://supabase.com/docs/guides/cli/getting-started) to install the Supabase CLI that is required.
+note: in this file if you used a subdomain, DOMAIN_NAME would be `bot.<yourdomain.com>` and API_DOMAIN_NAME would be `api.<yourdomain.com>`
 
-  ```bash
-  supabase -v # Check that the installation worked
-  ```
+Don't forget to save your changes (`Ctrl+X`, then `Y`, and `Enter`).
 
+### Step 3: Configure `.env` Files for Backend and Frontend
 
-- **Step 1**: Clone the repository:
+Next, configure the `backend/.env` and `frontend/.env` files as per the Quivr documentation. You'll fill in various settings specific to your setup.
 
-  ```bash
-  git clone https://github.com/quivrhq/quivr.git && cd quivr
-  ```
+### Step 4: Launch Quivr with Docker Compose
 
-- **Step 2**: Copy the `.env.example` files
+With your `.env` files ready, it's time to start up Quivr using Docker Compose. This step is exciting because it's when things come to life!
 
-  ```bash
-  cp .env.example .env
-  ```
+```bash
+docker-compose -f docker-compose.local.yml up
+```
 
-- **Step 3**: Update the `.env` files
+The `docker-compose.local.yml` file includes **Traefik**, which automagically handles HTTPS certificates for you.
 
-  ```bash
-  vim .env # or emacs or vscode or nano
-  ```
+### Step 5: Verify Installation
 
-  Update **OPENAI_API_KEY** in the `.env` file.
+Once everything is up and running, give yourself a pat on the back and verify that the services are accessible:
 
-  You just need to update the `OPENAI_API_KEY` variable in the `.env` file. You can get your API key [here](https://platform.openai.com/api-keys). You need to create an account first. And put your credit card information. Don't worry, you won't be charged unless you use the API. You can find more information about the pricing [here](https://openai.com/pricing/).
+- Visit `https://yourdomain.com` or `https://bot.yourdomain.com`
+- And `https://api.yourdomain.com`
 
+You should be greeted by your new Quivr setup, all shiny and secure!
 
-- **Step 4**: Launch the project
+## Additional Information
 
-  ```bash
-  cd backend && supabase start
-  ```
-  and then 
-  ```bash
-  cd ../
-  docker compose pull
-  docker compose up
-  ```
+- **Firewall Settings**: Ensure that ports 80 (HTTP) and 443 (HTTPS) are open. Traefik will handle the rest, including redirecting HTTP to HTTPS for you.
+- **Updates**: Keep an eye on the [Quivr GitHub repository](https://github.com/StanGirard/quivr) for any updates to maintain security and performance.
 
-  If you have a Mac, go to Docker Desktop > Settings > General and check that the "file sharing implementation" is set to `VirtioFS`.
+> Always use HTTPS for production environments to ensure the security of your data and communications.
 
-  If you are a developer, you can run the project in development mode with the following command: `docker compose -f docker-compose.dev.yml up --build`
-
-- **Step 5**: Login to the app
-
-  You can now sign in to the app with `admin@quivr.app` & `admin`. You can access the app at [http://localhost:3000/login](http://localhost:3000/login).
-
-  You can access Quivr backend API at [http://localhost:5050/docs](http://localhost:5050/docs)
-
-  You can access supabase at [http://localhost:54323](http://localhost:54323)
-
-## Updating Quivr 🚀
-
-- **Step 1**: Pull the latest changes
-
-  ```bash
-  git pull
-  ```
-
-- **Step 2**: Update the migration
-
-  ```bash
-  supabase migration up
-  ```
-
-
-## Contributors ✨
-
-Thanks go to these wonderful people:
-<a href="https://github.com/quivrhq/quivr/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=quivrhq/quivr" />
-</a>
-
-## Contribute 🤝
-
-Did you get a pull request? Open it, and we'll review it as soon as possible. Check out our project board [here](https://github.com/users/StanGirard/projects/5) to see what we're currently focused on, and feel free to bring your fresh ideas to the table!
-
-- [Open Issues](https://github.com/quivrhq/quivr/issues)
-- [Open Pull Requests](https://github.com/quivrhq/quivr/pulls)
-- [Good First Issues](https://github.com/quivrhq/quivr/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
-- [Frontend Issues](https://github.com/quivrhq/quivr/issues?q=is%3Aopen+is%3Aissue+label%3Afrontend)
-- [Backend Issues](https://github.com/quivrhq/quivr/issues?q=is%3Aopen+is%3Aissue+label%3Abackend)
-- [Translate](https://docs.quivr.app/docs/Developers/contribution/guidelines#translations)
-
-## Partners ❤️
-
-This project would not be possible without the support of our partners. Thank you for your support!
-
-
-<a href="https://ycombinator.com/">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Y_Combinator_logo.svg/1200px-Y_Combinator_logo.svg.png" alt="YCombinator" style="padding: 10px" width="70px">
-</a>
-<a href="https://www.theodo.fr/">
-  <img src="https://avatars.githubusercontent.com/u/332041?s=200&v=4" alt="Theodo" style="padding: 10px" width="70px">
-</a>
-
-## License 📄
-
-This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details
-
-## Stars History 📈
-
-[![Star History Chart](https://api.star-history.com/svg?repos=quivrhq/quivr&type=Timeline)](https://star-history.com/#quivrhq/quivr&Timeline)
+**Congratulations!** Your Quivr server should now be successfully installed and secured with HTTPS. Happy project managing!

@@ -43,10 +43,8 @@ services:
       - "traefik.http.routers.dashboard.tls.certresolver=myresolver"
       - "traefik.http.routers.dashboard.tls.domains[0].main=bb.virawelt.com"
       - "traefik.http.routers.dashboard.tls.domains[0].sans=bb.virawelt.com"
-      - "traefik.http.routers.dashboard.tls.options=default" #staging
-      - "traefik.http.routers.dashboard.tls.options.staging=true" #staging
-    # networks:
-    #   - traefik-network
+    networks:
+      - traefik-network
 
   frontend:
     image: quivr-frontend-prebuilt
@@ -186,7 +184,7 @@ services:
     #   - quivr-network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.flower.rule=Host(`flower.virawelt.com`)"
+      - "traefik.http.routers.flower.rule=Host(`flower.api.virawelt.com`)"
       - "traefik.http.routers.flower.entrypoints=websecure"
       - "traefik.http.routers.flower.tls.certresolver=myresolver"
       - "traefik.http.services.flower.loadbalancer.server.port=5555"
