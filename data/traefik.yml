@@ -1,0 +1,58 @@
+api:
+  dashboard: true
+  debug: true
+entryPoints:
+  http:
+    address: ":80"
+    http:
+      redirections:
+        entryPoint:
+          to: https
+          scheme: https
+  https:
+    address: ":443"
+  # https-sb:
+  #   address: ":54321"
+    # forwardedHeaders:
+    #   insecure: true
+    #   # trustedIPs:
+    #   #   - 167.172.187.28/32
+    #   trustedHosts:
+    #     - "bb.virawelt.com"
+    #     - "trdb.virawelt.com"
+http:
+  serversTransports:
+    insecuretransport:
+      serverName: "supabase"
+      insecureSkipVerify: true
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false
+  file:
+    filename: "/etc/traefik/traefik.yml"
+    watch: true
+certificatesResolvers:
+  cloudflare:
+    acme:
+      email: hojati@virawelt.com
+      storage: acme.json
+      # caServer: https://acme-v02.api.letsencrypt.org/directory # prod (default)
+      caServer: https://acme-staging-v02.api.letsencrypt.org/directory # staging
+      dnsChallenge:
+        provider: cloudflare
+        #disablePropagationCheck: true # uncomment this if you have issues pulling certificates through cloudflare, By setting this flag to true disables the need to wait for the propagation of the TXT record to all authoritative name servers.
+        #delayBeforeCheck: 60s # uncomment along with disablePropagationCheck if needed to ensure the TXT record is ready before verification is attempted 
+        resolvers:
+          - "1.1.1.1:53"
+          - "1.0.0.1:53"
+accessLog:
+  filePath: "/logs/access.log"
+  fields:
+    headers:
+      names:
+        User-Agent: keep
+
+log:
+  filePath: "/logs/traefik.log"
+  level: INFO

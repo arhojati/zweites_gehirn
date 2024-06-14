@@ -87,3 +87,6 @@ backend/modules/sync/controller/credentials.json
 backend/.env.test
 letsencrypt/acme.json
 certs/acme.json
+data/logs/access.log
+data/logs/traefik.log
+data/acme.json

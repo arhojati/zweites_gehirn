@@ -8,41 +8,37 @@ networks:
 services:
   traefik:
     image: traefik:v3.0
+    container_name: traefik
     restart: always
-    command:
-      - --api.insecure=true
-      - --log.level=INFO
-      - --accesslog=true
-      - --providers.docker=true
-      - --providers.docker.exposedByDefault=false
-      - --entrypoints.http.address=:80
-      - --entrypoints.https.address=:443
-      - --entrypoints.http.http.redirections.entrypoint.to=https
-      - --entryPoints.http.http.redirections.entrypoint.scheme=https
-      - --certificatesresolvers.myresolver.acme.email=arhodjjati@gmail.com
-      - --certificatesresolvers.myresolver.acme.tlschallenge=true
-      - --certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json
+    security_opt:
+      - no-new-privileges:true
     ports:
       - "80:80"
       - "443:443"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./certs:/certs:ro
-      - ./letsencrypt:/letsencrypt
+      # - "54322:54321"
+    env_file:
+      - .env
     environment:
+      - TZ=Europe/Berlin
       - TRAEFIK_DASHBOARD_CREDENTIALS=${TRAEFIK_DASHBOARD_CREDENTIALS}
       - CF_DNS_API_TOKEN=${CF_DNS_API_TOKEN}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./data/traefik.yml:/etc/traefik/traefik.yml:ro
+      - ./data/acme.json:/acme.json:rw
+      - ./data/logs:/logs:rw
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.dashboard.entrypoints=https"
       - "traefik.http.routers.dashboard.rule=Host(`trdb.virawelt.com`)"
       - "traefik.http.routers.dashboard.service=api@internal"
       - "traefik.http.routers.dashboard.middlewares=auth"
-      - "traefik.http.middlewares.auth.basicauth.users=${TRAEFIK_DASHBOARD_CREDENTIALS}"
       - "traefik.http.routers.dashboard.tls=true"
-      - "traefik.http.routers.dashboard.tls.certresolver=myresolver"
-      - "traefik.http.routers.dashboard.tls.domains[0].main=bb.virawelt.com"
-      - "traefik.http.routers.dashboard.tls.domains[0].sans=bb.virawelt.com"
+      - "traefik.http.middlewares.auth.basicauth.users=${TRAEFIK_DASHBOARD_CREDENTIALS}"
+      # - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https" #new
+      - "traefik.http.routers.dashboard.tls.certresolver=cloudflare"
+      - "traefik.http.routers.dashboard.tls.domains[0].main=virawelt.com"
+      - "traefik.http.routers.dashboard.tls.domains[0].sans=*.virawelt.com"
       - "traefik.http.routers.dashboard.tls.options=default"
 
   frontend:
@@ -64,11 +60,20 @@ services:
       - backend-core
       - traefik
     restart: always
+    # ports:
+    #   - "443:443"
+    #   - "54321:54321"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.frontend.rule=Host(`bb.virawelt.com`)"
       - "traefik.http.routers.frontend.entrypoints=https"
-      - "traefik.http.routers.frontend.tls.certresolver=myresolver"
+      - "traefik.http.routers.frontend.tls.certresolver=cloudflare"
+      # - "traefik.http.routers.frontend.service=supabase"
+      # - "traefik.http.services.supabase.loadbalancer.server.scheme=https"
+      # - "traefik.http.services.supabase.loadbalancer.server.port=54321"
+      # - "traefik.http.routers.supabase.entrypoints=https-sb"
+      # - "traefik.http.routers.supabase.rule=Host(`bb.virawelt.com`)"
+      # - "traefik.http.services.supabase.loadbalancer.serversTransport=insecuretransport@file" #new
 
   backend-core:
     image: stangirard/quivr-backend-prebuilt:latest
@@ -99,8 +104,12 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.backend.rule=Host(`api.virawelt.com`)"
       - "traefik.http.routers.backend.entrypoints=https"
-      - "traefik.http.routers.backend.tls.certresolver=myresolver"
+      - "traefik.http.routers.backend.tls.certresolver=cloudflare"
       - "traefik.http.services.backend.loadbalancer.server.port=5050"
+      # - "traefik.http.routers.backend.service=supabase"
+      # - "traefik.http.services.supabase.loadbalancer.server.scheme=https"
+      # - "traefik.http.services.supabase.loadbalancer.server.port=54321"
+      # - "traefik.http.services.supabase.loadbalancer.serversTransport=insecuretransport@file" #new
     depends_on:
       - redis
       - traefik
@@ -165,5 +174,5 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.flower.rule=Host(`flower.api.virawelt.com`)"
       - "traefik.http.routers.flower.entrypoints=https"
-      - "traefik.http.routers.flower.tls.certresolver=myresolver"
+      - "traefik.http.routers.flower.tls.certresolver=cloudflare"
       - "traefik.http.services.flower.loadbalancer.server.port=5555"
